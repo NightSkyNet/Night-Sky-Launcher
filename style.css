@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url('https://cdn.glitch.global/597a09dc-8c09-4675-bbf9-dd4655b2ef07/01989dfb-8865-478c-85aa-c20e706976d6.jpeg?v=1742487599079') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.moon {
+    position: absolute;
+    top: 15%;
+    left: 70%;
+    width: 100px;
+    height: 100px;
+    background: url('https://cdn.glitch.global/597a09dc-8c09-4675-bbf9-dd4655b2ef07/eagler%20logo.png?v=1742487793158') no-repeat center center;
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    animation: moonFloat 6s infinite alternate ease-in-out;
+}
+
+
+@keyframes moonFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+.sun {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 150px;
+    height: 150px;
+    background: url('https://cdn.glitch.global/597a09dc-8c09-4675-bbf9-dd4655b2ef07/NightSky-Launcher-Logo?v=1742487916519') no-repeat center center, radial-gradient(circle, yellow 40%, orange 80%);
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+    animation: sunFloat 6s infinite alternate ease-in-out;
+}
+
+@keyframes sunFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-out;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.button-hover:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    text-align: left;
+    color: white;
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.dropdown-selected {
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-options {
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 12px 12px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 20;
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.custom-dropdown.open {
+    margin-bottom: 260px;
+}
+
+.custom-dropdown.open .dropdown-options {
+    opacity: 1;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.dropdown-options li {
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.dropdown-options li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+}
+
+.dropdown-options::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.loading-logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.loading-circle {
+    border: 8px solid #ffffff;
+    border-top: 8px solid transparent;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
