@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NightSky Launcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.glitch.global/597a09dc-8c09-4675-bbf9-dd4655b2ef07/NightSky-Launcher-Logo?v=1742487916519" type="image/png">
+</head>
+<body>
+    <div id="loadingScreen" class="loading-screen">
+        <img src="https://cdn.glitch.global/597a09dc-8c09-4675-bbf9-dd4655b2ef07/NightSky-Launcher-Logo?v=1742487916519" alt="Loading..." class="loading-logo">
+        <div class="loading-circle"></div>
+    </div>
+    <div class="sun"></div>
+    <div class="moon"></div>
+    <div class="container">
+        <h1 class="fade-in">NightSky Launcher</h1>
+        <p class="fade-in">Select your Eaglercraft client:</p>
+        <div class="custom-dropdown">
+          <div class="dropdown-selected">Choose a version...</div>
+            <ul class="dropdown-options">
+              <li data-url="/play/client/eaglercraft/version/1.12">Eaglercraft 1.12.2</li>
+              <li data-url="#">Eaglercraft 1.11.2</li>
+              <li data-url="#">Eaglercraft 1.9.2</li>
+              <li data-url="#">EaglercraftX</li>
+              <li data-url="#">EaglercraftX WASM</li>
+              <li data-url="#">Astra Client</li>
+            </ul>
+        </div>
+<button id="launchButton" class="glass button-hover">Launch</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
