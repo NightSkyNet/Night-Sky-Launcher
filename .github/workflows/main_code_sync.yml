@@ -1,0 +1,27 @@
+name: Sync from Glitch
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Change the value from 1 to anything else if (this is minutes)
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pull latest changes from Glitch
+        run: |
+          git clone --depth=1 https://96b43152-d3a8-4e21-99cd-5e57929534f8@api.glitch.com/git/nightsky-launcher glitch-source
+          rsync -av --exclude='.git' glitch-source/ ./
+          rm -rf glitch-source
+      
+      - name: Push to GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Auto-sync from Glitch" || true
+          git push
